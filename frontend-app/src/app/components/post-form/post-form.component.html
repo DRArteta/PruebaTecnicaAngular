@@ -1,0 +1,14 @@
+<div class="container">
+  <h2>{{ formTitle }}</h2>
+  <form (submit)="submitForm()">
+    <div class="form-group">
+      <label for="title">Título:</label>
+      <input type="text" class="form-control" id="title" [(ngModel)]="post.title" required>
+    </div>
+    <div class="form-group">
+      <label for="body">Contenido:</label>
+      <textarea class="form-control" id="body" rows="4" [(ngModel)]="post.body" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">{{ formSubmitButtonText }}</button>
+  </form>
+</div>
