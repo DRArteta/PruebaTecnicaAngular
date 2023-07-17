@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-6">
-      <div class="card shadow">
+      <div class="card shadow" [ngClass]="{'alert-visible': loginError}">
         <div class="card-body">
           <h1 class="card-title text-center">Iniciar sesión</h1>
           <form #loginForm="ngForm" (ngSubmit)="login()">
@@ -14,10 +14,7 @@
               <input type="password" class="form-control" id="password" name="password" [(ngModel)]="password" required>
             </div>
             <button type="submit" class="btn btn-primary btn-block">Iniciar sesión</button>
-            <p *ngFor="let alert of alerts">
-              <ngb-alert [type]="alert.type" *ngIf="loginError" (closed)="close(alert)">Nombre de usuario o contraseña incorrectos.</ngb-alert>
-            </p>
-            <ngb-alert *ngIf="loginError" type="danger" class="mt-2">
+            <ngb-alert *ngIf="loginError" type="danger" class="mt-2" (closed)="closeAlert()">
               Nombre de usuario o contraseña incorrectos.
             </ngb-alert>
           </form>

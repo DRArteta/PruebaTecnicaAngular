@@ -2,14 +2,6 @@ import { Alert } from './alert.interface';
 
 export const ALERTS: Alert[] = [
 	{
-		type: 'success',
-		message: 'This is an success alert',
-	},
-	{
-		type: 'info',
-		message: 'This is an info alert',
-	},
-	{
 		type: 'warning',
 		message: 'This is a warning alert',
 	},

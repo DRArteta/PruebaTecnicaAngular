@@ -21,7 +21,6 @@ export class LoginComponent {
   @ViewChild('loginForm') loginForm!: NgForm;
 
   constructor(private authService: AuthService, private router: Router) {
-    this.reset();
    }
 
   login() {
@@ -36,12 +35,7 @@ export class LoginComponent {
       });
     }
   }
-
-  close(alert: Alert) {
-		this.alerts.splice(this.alerts.indexOf(alert), 1);
-	}
-
-	reset() {
-		this.alerts = Array.from(ALERTS);
-	}
+  closeAlert(): void {
+    this.loginError = false;
+  }
 }

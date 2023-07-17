@@ -5,6 +5,10 @@
   height: 100vh;
 }
 
+.card.alert-visible {
+  height: 420px; /* Ajusta el tamaño según tus necesidades */
+}
+
 .card {
   width: 380px;
   padding: 20px;
