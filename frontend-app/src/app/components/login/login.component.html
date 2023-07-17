@@ -14,6 +14,9 @@
               <input type="password" class="form-control" id="password" name="password" [(ngModel)]="password" required>
             </div>
             <button type="submit" class="btn btn-primary btn-block">Iniciar sesión</button>
+            <p *ngFor="let alert of alerts">
+              <ngb-alert [type]="alert.type" *ngIf="loginError" (closed)="close(alert)">Nombre de usuario o contraseña incorrectos.</ngb-alert>
+            </p>
             <ngb-alert *ngIf="loginError" type="danger" class="mt-2">
               Nombre de usuario o contraseña incorrectos.
             </ngb-alert>
