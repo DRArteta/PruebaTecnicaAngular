@@ -8,4 +8,6 @@ import { Component, Input } from '@angular/core';
 export class NotificationModalComponent {
   @Input() title: string = '';
   @Input() message: string = '';
+
+  constructor() { }
 }

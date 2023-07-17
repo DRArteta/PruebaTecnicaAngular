@@ -1,21 +1,60 @@
 <div class="container">
-  <h1>Lista de Posts</h1>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Título</th>
-        <th>Acciones</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let post of posts">
-        <td>{{ post.id }}</td>
-        <td>{{ post.title }}</td>
-        <td>
-          <button class="btn btn-danger" (click)="deletePost(post.id)">Eliminar</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <h1 class="text-center">Lista de Posts</h1>
+  <div class="card shadow p-3">
+    <button class="btn btn-success" routerLink="/post-form">Agregar Post</button>
+  </div>
+  <div class="card shadow p-3">
+    <div class="search-container">
+      <input type="text" class="search-input" [(ngModel)]="searchTerm" placeholder="Buscar">
+      <button class="search-button" (click)="fetchPosts()">Buscar</button>
+    </div>
+  </div>
+  <div class="card shadow p-3">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Título</th>
+          <th>Body</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let post of getPaginatedPosts()">
+          <td>{{ post.id }}</td>
+          <td>{{ post.title }}</td>
+          <td>{{ post.body }}</td>
+          <td>
+            <button class="btn btn-primary" (click)="editPost(post)" ngbTooltip="Editar" placement="top">
+              <i class="bi bi-pencil-fill"></i>
+            </button>
+            <button class="btn btn-danger" (click)="deletePost(post.id)" ngbTooltip="Eliminar" placement="top">
+              <i class="bi bi-trash-fill"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card shadow p-3">
+    <nav *ngIf="totalPages > 1">
+      <ul class="pagination">
+        <li class="page-item" [class.disabled]="currentPage === 1">
+          <a class="page-link" href="#" (click)="goToPage(1, $event)">Primera</a>
+        </li>
+        <li class="page-item" [class.disabled]="currentPage === 1">
+          <a class="page-link" href="#" (click)="goToPage(currentPage - 1, $event)">Anterior</a>
+        </li>
+        <li class="page-item" *ngFor="let page of pages" [class.active]="page === currentPage">
+          <a class="page-link" href="#" (click)="goToPage(page, $event)">{{ page }}</a>
+        </li>
+        <li class="page-item" [class.disabled]="currentPage === totalPages">
+          <a class="page-link" href="#" (click)="goToPage(currentPage + 1, $event)">Siguiente</a>
+        </li>
+        <li class="page-item" [class.disabled]="currentPage === totalPages">
+          <a class="page-link" href="#" (click)="goToPage(totalPages, $event)">Última</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
 </div>

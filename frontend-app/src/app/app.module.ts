@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import {NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbAlertModule, NgbTooltipModule, NgbTooltipConfig} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,16 +17,18 @@ import { PostFormComponent } from './components/post-form/post-form.component';
     LoginComponent,
     PostListComponent,
     NotificationModalComponent,
-    PostFormComponent
+    PostFormComponent,
+
   ],
   imports: [
     NgbAlertModule,
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbTooltipModule
   ],
-  providers: [],
+  providers: [NgbTooltipConfig],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
