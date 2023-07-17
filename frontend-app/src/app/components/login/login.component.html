@@ -1,15 +1,25 @@
 <div class="container">
-  <h1>Iniciar sesión</h1>
-  <form #loginForm="ngForm" (ngSubmit)="login()">
-    <div class="form-group">
-      <label for="username">Nombre de usuario:</label>
-      <input type="text" class="form-control" id="username" name="username" [(ngModel)]="username" required>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow">
+        <div class="card-body">
+          <h1 class="card-title text-center">Iniciar sesión</h1>
+          <form #loginForm="ngForm" (ngSubmit)="login()">
+            <div class="form-group">
+              <label for="username">Nombre de usuario:</label>
+              <input type="text" class="form-control" id="username" name="username" [(ngModel)]="username" required>
+            </div>
+            <div class="form-group">
+              <label for="password">Contraseña:</label>
+              <input type="password" class="form-control" id="password" name="password" [(ngModel)]="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Iniciar sesión</button>
+            <ngb-alert *ngIf="loginError" type="danger" class="mt-2">
+              Nombre de usuario o contraseña incorrectos.
+            </ngb-alert>
+          </form>
+        </div>
+      </div>
     </div>
-    <div class="form-group">
-      <label for="password">Contraseña:</label>
-      <input type="password" class="form-control" id="password" name="password" [(ngModel)]="password" required>
-    </div>
-    <button type="submit" class="btn btn-primary">Iniciar sesión</button>
-    <p class="text-danger" *ngIf="loginError">Nombre de usuario o contraseña incorrectos.</p>
-  </form>
+  </div>
 </div>
