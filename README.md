@@ -1,5 +1,3 @@
-# Aquí tienes la documentación actualizada indicando el uso de `--force` para algunas dependencias:
-
 # Documentación - Proyecto de Prueba Técnica
 
 Este proyecto es una prueba técnica desarrollada por David Ricardo Arteta Romero para la empresa Inteia del grupo Isa. El proyecto utiliza Angular, TypeScript y el framework Angular Material, además de las grillas responsivas de Bootstrap. A continuación, se detallan los pasos de instalación y uso del proyecto.
